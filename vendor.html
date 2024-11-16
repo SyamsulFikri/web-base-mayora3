@@ -9,16 +9,16 @@
   <body>
     <header>
       <div class="logo-container">
-        <h1>Vendor</h1>
+        <h1>Manage Vendor</h1>
       </div>
       <nav>
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="schedule.html">Schedule Project</a></li>
           <li><a href="vendor.html">Vendor</a></li>
           <li><a href="project.html">Project</a></li>
           <li><a href="dh.html">DH</a></li>
-          <li><a href="uh.html">UH</a></li>
+          <li><a href="uh.html">FM</a></li>
         </ul>
       </nav>
     </header>
@@ -30,33 +30,12 @@
           <input
             type="text"
             id="vendor-description"
-            placeholder="Deskripsi Vendor"
+            placeholder="Vendor Description"
             required
           />
-          <label for="status-ok">OK</label>
-          <input
-            type="radio"
-            id="status-ok"
-            name="status"
-            value="OK"
-            required
-          />
-          <label for="status-jeda">Jeda</label>
-          <input
-            type="radio"
-            id="status-jeda"
-            name="status"
-            value="Jeda"
-            required
-          />
-          <label for="status-not-ok">Not OK</label>
-          <input
-            type="radio"
-            id="status-not-ok"
-            name="status"
-            value="Not OK"
-            required
-          />
+          <label><input type="checkbox" id="status-ok" /> OK</label>
+          <label><input type="checkbox" id="status-jeda" /> Jeda</label>
+          <label><input type="checkbox" id="status-not-ok" /> Not OK</label>
           <button type="submit">Add Vendor</button>
         </form>
       </section>
@@ -66,12 +45,14 @@
         <table id="vendor-table">
           <thead>
             <tr>
-              <th>Deskripsi</th>
-              <th>Status</th>
+              <th>Description</th>
+              <th>OK</th>
+              <th>Jeda</th>
+              <th>Not OK</th>
             </tr>
           </thead>
           <tbody>
-            <!-- Data Vendor akan ditambahkan di sini -->
+            <!-- Vendor data will appear here -->
           </tbody>
         </table>
       </section>

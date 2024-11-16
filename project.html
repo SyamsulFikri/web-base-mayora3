@@ -9,16 +9,16 @@
   <body>
     <header>
       <div class="logo-container">
-        <h1>Project</h1>
+        <h1>Manage Projects</h1>
       </div>
       <nav>
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="schedule.html">Schedule Project</a></li>
           <li><a href="vendor.html">Vendor</a></li>
           <li><a href="project.html">Project</a></li>
           <li><a href="dh.html">DH</a></li>
-          <li><a href="uh.html">UH</a></li>
+          <li><a href="uh.html">FM</a></li>
         </ul>
       </nav>
     </header>
@@ -30,16 +30,15 @@
           <input
             type="text"
             id="project-name"
-            placeholder="Nama Project"
+            placeholder="Project Name"
             required
           />
           <input
             type="text"
             id="project-description"
-            placeholder="Deskripsi"
+            placeholder="Description"
             required
           />
-          <label for="project-status">Status</label>
           <select id="project-status" required>
             <option value="Pending">Pending</option>
             <option value="Approved">Approved</option>
@@ -54,14 +53,15 @@
         <table id="project-table">
           <thead>
             <tr>
-              <th>Nama Project</th>
-              <th>Deskripsi</th>
+              <th>Project Name</th>
+              <th>Description</th>
               <th>Status</th>
               <th>Action</th>
+              <tr>Attachments</tr>
             </tr>
           </thead>
           <tbody>
-            <!-- Data Project akan ditambahkan di sini -->
+            <!-- Project data will appear here -->
           </tbody>
         </table>
       </section>

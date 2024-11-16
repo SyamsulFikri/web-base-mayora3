@@ -3,27 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DH / UH</title>
+    <title>FM</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header>
-      <h1>DH / UH</h1>
+      <h1>FM</h1>
       <nav>
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="schedule.html">Schedule Project</a></li>
           <li><a href="vendor.html">Vendor</a></li>
           <li><a href="project.html">Project</a></li>
           <li><a href="dh.html">DH</a></li>
-          <li><a href="uh.html">UH</a></li>
+          <li><a href="uh.html">FM</a></li>
         </ul>
       </nav>
     </header>
     <main>
-      <h2>Add DH/UH Status</h2>
+      <h2>Add FM Status</h2>
       <form id="dh-uh-form">
         <input type="text" id="dh-uh-status" placeholder="Status" required />
+        <select id="fm-status" required>
+          <option value="OKE">OKE</option>
+          <option value="NOT OKE">NOT OKE</option>
+        </select>
         <button type="submit">Add Status</button>
       </form>
 

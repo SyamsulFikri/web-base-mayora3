@@ -6,13 +6,17 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f7fc;
+  color: #333;
 }
 
 header {
   background-color: red;
   color: white;
-  padding: 15px;
+  padding: 20px;
+  text-align: center;
 }
 
 header h1 {
@@ -168,11 +172,16 @@ td {
 th,
 td {
   padding: 10px;
-  text-align: left;
+  text-align: center;
 }
 
 th {
   background-color: #f2f2f2;
+}
+
+.days label {
+  display: inline-block;
+  margin: 5px;
 }
 
 button {

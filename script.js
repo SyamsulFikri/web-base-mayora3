@@ -1,104 +1,96 @@
+// Handle form submissions and add data to tables
 document.addEventListener("DOMContentLoaded", () => {
-  // Function to add schedule data
+  // Schedule Form Submission
   const scheduleForm = document.getElementById("schedule-form");
-  const scheduleTable = document
+  const scheduleTableBody = document
     .getElementById("schedule-table")
-    .getElementsByTagName("tbody")[0];
+    .querySelector("tbody");
 
-  scheduleForm.addEventListener("submit", function (event) {
+  scheduleForm.addEventListener("submit", (event) => {
     event.preventDefault();
+
     const deskripsi = document.getElementById("deskripsi").value;
-    const mChecked = document.getElementById("m").checked ? "✔" : "";
-    const tChecked = document.getElementById("t").checked ? "✔" : "";
+    const senin = document.getElementById("senin").checked;
+    const selasa = document.getElementById("selasa").checked;
+    const rabu = document.getElementById("rabu").checked;
+    const kamis = document.getElementById("kamis").checked;
+    const jumat = document.getElementById("jumat").checked;
+    const sabtu = document.getElementById("sabtu").checked;
+    const minggu = document.getElementById("minggu").checked;
+    const tanggalWaktu = document.getElementById("tanggal-waktu").value;
 
-    const newRow = scheduleTable.insertRow();
-    newRow.innerHTML = `<td>${deskripsi}</td><td>${mChecked}</td><td>${tChecked}</td>`;
-    scheduleForm.reset();
+    const row = scheduleTableBody.insertRow();
+    row.innerHTML = `
+        <td>${deskripsi}</td>
+        <td>${senin ? "✔️" : ""}</td>
+        <td>${selasa ? "✔️" : ""}</td>
+        <td>${rabu ? "✔️" : ""}</td>
+        <td>${kamis ? "✔️" : ""}</td>
+        <td>${jumat ? "✔️" : ""}</td>
+        <td>${sabtu ? "✔️" : ""}</td>
+        <td>${minggu ? "✔️" : ""}</td>
+        <td>${tanggalWaktu}</td>
+      `;
   });
 
-  // Function to add vendor data
+  // Vendor Form Submission
   const vendorForm = document.getElementById("vendor-form");
-  const vendorTable = document
+  const vendorTableBody = document
     .getElementById("vendor-table")
-    .getElementsByTagName("tbody")[0];
+    .querySelector("tbody");
 
-  vendorForm.addEventListener("submit", function (event) {
+  vendorForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    const deskripsi = document.getElementById("vendor-deskripsi").value;
-    const ok = document.getElementById("ok").checked ? "✔" : "";
-    const jeda = document.getElementById("jeda").checked ? "✔" : "";
-    const notOke = document.getElementById("not-oke").checked ? "✔" : "";
 
-    const newRow = vendorTable.insertRow();
-    newRow.innerHTML = `<td>${deskripsi}</td><td>${okChecked}</td><td>${jedaChecked}</td><td>${notOkeChecked}</td>`;
-    vendorForm.reset();
+    const description = document.getElementById("vendor-description").value;
+    const statusOk = document.getElementById("status-ok").checked;
+    const statusJeda = document.getElementById("status-jeda").checked;
+    const statusNotOk = document.getElementById("status-not-ok").checked;
+
+    const row = vendorTableBody.insertRow();
+    row.innerHTML = `
+        <td>${description}</td>
+        <td>${statusOk ? "✔️" : ""}</td>
+        <td>${statusJeda ? "✔️" : ""}</td>
+        <td>${statusNotOk ? "✔️" : ""}</td>
+      `;
   });
 
-  // Function to add project data
+  // Project Form Submission
   const projectForm = document.getElementById("project-form");
-  const projectTable = document
+  const projectTableBody = document
     .getElementById("project-table")
-    .getElementsByTagName("tbody")[0];
+    .querySelector("tbody");
 
-  projectForm.addEventListener("submit", function (event) {
+  projectForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    const name = document.getElementById("project-name").value;
-    const description = document.getElementById("project-description").value;
-    const status = document.getElementById("project-status").value;
 
-    const newRow = projectTable.insertRow();
-    newRow.innerHTML = `
-            <td>${name}</td>
-            <td>${description}</td>
-            <td>${status}</td>
-            <td>
-                <button onclick="approveProject(this)">Approve</button>
-                <button onclick="declineProject(this)">Decline</button>
-            </td>
-        `;
-    projectForm.reset();
+    const projectName = document.getElementById("project-name").value;
+    const projectDescription = document.getElementById(
+      "project-description"
+    ).value;
+    const projectStatus = document.getElementById("project-status").value;
+
+    const row = projectTableBody.insertRow();
+    row.innerHTML = `
+        <td>${projectName}</td>
+        <td>${projectDescription}</td>
+        <td>${projectStatus}</td>
+        <td>
+          <button class="approve-btn">Approve</button>
+          <button class="decline-btn">Decline</button>
+        </td>
+      `;
   });
 
-  // Handle Approve and Decline for Project
-  window.approveProject = function (button) {
-    const row = button.parentElement.parentElement;
-    row.cells[2].textContent = "Approved";
-  };
-
-  window.declineProject = function (button) {
-    const row = button.parentElement.parentElement;
-    row.cells[2].textContent = "Declined";
-  };
-
-  // Function to add DH/UH status
-  const dhUhForm = document.getElementById("dh-uh-form");
-  const dhUhTable = document
-    .getElementById("dh-uh-table")
-    .getElementsByTagName("tbody")[0];
-
-  dhUhForm.addEventListener("submit", function (event) {
-    event.preventDefault();
-    const status = document.getElementById("dh-uh-status").value;
-
-    const newRow = dhUhTable.insertRow();
-    newRow.innerHTML = `
-            <td>${status}</td>
-            <td>
-                <button onclick="approveDHUH(this)">Approve</button>
-                <button onclick="declineDHUH(this)">Decline</button>
-            </td>
-        `;
-    dhUhForm.reset();
+  // Handle Approve and Decline buttons for Project
+  document.addEventListener("click", (event) => {
+    if (event.target.classList.contains("approve-btn")) {
+      const row = event.target.closest("tr");
+      row.cells[2].textContent = "Approved";
+    } else if (event.target.classList.contains("decline-btn")) {
+      const row = event.target.closest("tr");
+      row.cells[2].textContent = "Declined";
+    }
   });
-
-  // Handle Approve and Decline for DH/UH
-  window.approveDHUH = function (button) {
-    const row = button.parentElement.parentElement;
-    row.cells[0].textContent = "Approved";
-  };
-
-  window.declineDHUH = function (button) {
-    const row = button.parentElement.parentElement;
-    row.cells[0].textContent = "Declined";
-  };
 });

@@ -3,22 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Schedule</title>
+    <title>Schedule Project</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header>
       <div class="logo-container">
-        <h1>Schedule</h1>
+        <h1>Manage Schedule Project</h1>
       </div>
       <nav>
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="schedule.html">Schedule Project</a></li>
           <li><a href="vendor.html">Vendor</a></li>
           <li><a href="project.html">Project</a></li>
           <li><a href="dh.html">DH</a></li>
-          <li><a href="uh.html">UH</a></li>
+          <li><a href="uh.html">FM</a></li>
         </ul>
       </nav>
     </header>
@@ -28,10 +28,16 @@
         <h2>Add Schedule</h2>
         <form id="schedule-form">
           <input type="text" id="deskripsi" placeholder="Deskripsi" required />
-          <label for="m">M</label>
-          <input type="checkbox" id="m" />
-          <label for="t">T</label>
-          <input type="checkbox" id="t" />
+          <div class="days">
+            <label><input type="checkbox" id="senin" /> Senin</label>
+            <label><input type="checkbox" id="selasa" /> Selasa</label>
+            <label><input type="checkbox" id="rabu" /> Rabu</label>
+            <label><input type="checkbox" id="kamis" /> Kamis</label>
+            <label><input type="checkbox" id="jumat" /> Jumat</label>
+            <label><input type="checkbox" id="sabtu" /> Sabtu</label>
+            <label><input type="checkbox" id="minggu" /> Minggu</label>
+          </div>
+          <input type="datetime-local" id="tanggal-waktu" required />
           <button type="submit">Add Schedule</button>
         </form>
       </section>
@@ -42,12 +48,18 @@
           <thead>
             <tr>
               <th>Deskripsi</th>
-              <th>M</th>
-              <th>T</th>
+              <th>Senin</th>
+              <th>Selasa</th>
+              <th>Rabu</th>
+              <th>Kamis</th>
+              <th>Jumat</th>
+              <th>Sabtu</th>
+              <th>Minggu</th>
+              <th>Tanggal/Waktu</th>
             </tr>
           </thead>
           <tbody>
-            <!-- Data Schedule akan ditambahkan di sini -->
+            <!-- Schedule data will appear here -->
           </tbody>
         </table>
       </section>
